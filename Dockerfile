@@ -1,4 +1,4 @@
-ARG FROM_IMAGE=ros:eloquent
+ARG FROM_IMAGE=ros:eloquent-cuda
 
 # multi-stage for caching
 FROM $FROM_IMAGE AS cache
@@ -55,7 +55,9 @@ RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
     colcon build \
       --symlink-install \
       --mixin \
-        $UNDERLAY_MIXINS
+        $UNDERLAY_MIXINS \
+      --cmake-args \
+        -DBUILD_WITH_CUDA=ON
 
 # copy overlay manifests
 ENV OVERLAY_WS /opt/overlay_ws
@@ -80,7 +82,9 @@ RUN . $UNDERLAY_WS/install/setup.sh && \
     colcon build \
       --symlink-install \
       --mixin \
-        $OVERLAY_MIXINS
+        $OVERLAY_MIXINS \
+      --cmake-args \
+        -DBUILD_WITH_CUDA=ON
 
 # source overlay from entrypoint
 RUN sed --in-place \
