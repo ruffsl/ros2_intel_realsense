@@ -32,13 +32,6 @@ RealSenseD435I::RealSenseD435I(rs2::context ctx, rs2::device dev, rclcpp::Node &
   angular_velocity_cov_ = DEFAULT_ANGULAR_VELOCITY_COV;
   initialized_ = true;
 
-  auto depth_sensor =  dev.first<rs2::depth_sensor>();
-  if (depth_sensor.supports(RS2_OPTION_EMITTER_ENABLED))
-  {
-//    depth_sensor.set_option(RS2_OPTION_EMITTER_ENABLED, 1.f); // Enable emitter
-    depth_sensor.set_option(RS2_OPTION_EMITTER_ENABLED, 0.f); // Disable emitter
-  }
-
   std::string unite_imu_method_str("");
   node_.get_parameter_or("unite_imu_method", unite_imu_method_str, DEFAULT_UNITE_IMU_METHOD);
   if (unite_imu_method_str == "linear_interpolation")
