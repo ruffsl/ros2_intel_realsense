@@ -66,8 +66,8 @@ namespace realsense
   const std::string DEFAULT_COLOR_OPTICAL_FRAME_ID    = "camera_color_optical_frame";
   const std::string DEFAULT_FISHEYE1_OPTICAL_FRAME_ID = "camera_fisheye1_optical_frame";
   const std::string DEFAULT_FISHEYE2_OPTICAL_FRAME_ID = "camera_fisheye2_optical_frame";
-  const std::string DEFAULT_ACCEL_OPTICAL_FRAME_ID    = "camera_accel_optical_frame";
-  const std::string DEFAULT_GYRO_OPTICAL_FRAME_ID     = "camera_gyro_optical_frame";
+  const std::string DEFAULT_ACCEL_OPTICAL_FRAME_ID    = "camera_imu_optical_frame";
+  const std::string DEFAULT_GYRO_OPTICAL_FRAME_ID     = "camera_imu_optical_frame";
   const std::string DEFAULT_IMU_OPTICAL_FRAME_ID      = "camera_imu_optical_frame";
   const std::string DEFAULT_POSE_OPTICAL_FRAME_ID     = "camera_pose_optical_frame";
 
